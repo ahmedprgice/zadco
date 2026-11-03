@@ -20,8 +20,8 @@ export type EquipmentReferencePhoto = {
 }
 
 const workoverRigPhoto: EquipmentReferencePhoto = {
-  src: "/images/equipment-illustrations/workover-rig.svg",
-  alt: "Original schematic illustration of a generic land workover rig",
+  src: "/images/equipment-ai/workover-rig.webp",
+  alt: "AI-generated illustration of a generic land workover rig",
 }
 
 // Reference equipment illustrates only the matching part of each broad category.
@@ -29,12 +29,12 @@ const referencePhotos: Record<string, EquipmentReferencePhoto | undefined> = {
   "drilling-services-1": workoverRigPhoto,
   "well-intervention-workover-3": workoverRigPhoto,
   "oilfield-equipment-maintenance-1": {
-    src: "/images/equipment-illustrations/mud-pump.svg",
-    alt: "Original schematic illustration of a generic skid-mounted mud pump",
+    src: "/images/equipment-ai/mud-pump.webp",
+    alt: "AI-generated illustration of a generic skid-mounted mud pump",
   },
   "well-construction-cementing-3": {
-    src: "/images/equipment-illustrations/wellhead-spool.svg",
-    alt: "Original schematic illustration of a generic flanged wellhead spacer spool",
+    src: "/images/equipment-ai/wellhead-spool.webp",
+    alt: "AI-generated illustration of a generic flanged wellhead spacer spool",
   },
 }
 
@@ -95,3 +95,4 @@ export function findEquipmentProduct(id: string) {
   const legacyIds: Record<string, string> = { "1": "drilling-services-3", "2": "well-construction-cementing-1", "3": "oilfield-equipment-maintenance-3" }
   return equipmentProducts.find(product => product.id === (legacyIds[id] ?? id))
 }
+

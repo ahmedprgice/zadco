@@ -4,11 +4,15 @@ Reviewed 2026-11-03. This records available evidence, not a legal clearance.
 
 ## Replacements
 
-The three MachineryTrader JPGs were removed from the current source and replaced with original SVG schematics authored for this website, without tracing the photos or copying manufacturer branding. Older Git commits and older Vercel deployments can still contain the removed files.
+The three MachineryTrader JPGs were removed from the current source. They were initially replaced with original SVG schematics, and then replaced at the user's request with AI-generated equipment images. Older Git commits and older Vercel deployments can still contain the removed files.
 
-- equipment-illustrations/workover-rig.svg
-- equipment-illustrations/mud-pump.svg
-- equipment-illustrations/wellhead-spool.svg
+- equipment-ai/workover-rig.webp
+- equipment-ai/mud-pump.webp
+- equipment-ai/wellhead-spool.webp
+
+Generated on 2026-11-03 using the built-in OpenAI image-generation tool. Each image was generated separately from a written description, without input or reference photographs. The requests specified generic fictional equipment, no manufacturer model, no branding, no logos or text, a pale grey studio background, and navy/orange industrial finishes. Subjects: mobile land workover rig; skid-mounted triplex mud pump; flanged wellhead spacer spool. These are illustrative assets, not technical drawings or photographs of actual stock. The website labels them accordingly. Full-resolution generated PNGs remain in the local Codex generated-images folder; deployed versions are optimized 1200px WebP files.
+
+AI generation records provide provenance for these three assets, not a guarantee of exclusive ownership or legal clearance. The older SVG alternatives remain in the repository but are no longer used by the pages.
 
 ## Existing local images
 
