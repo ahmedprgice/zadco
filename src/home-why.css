@@ -1,0 +1,42 @@
+.home-why { padding-block: var(--site-section-space); background: white; color: var(--color-zadco-navy); }
+.home-why-layout { display: block; }
+.home-why-label { display: flex; align-items: center; gap: 16px; color: #596b76; }
+.home-why-label::before { width: 36px; height: 2px; flex-shrink: 0; background: var(--color-zadco-orange); content: ""; }
+.home-why .home-why-title { margin-top: 20px; }
+.home-why-summary { max-width: 960px; margin-top: 20px; color: #596b76; font-size: 16px; line-height: 1.75; }
+
+.home-why-benefits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 36px;
+  padding-block: 28px;
+  border-block: 1px solid rgb(115 122 128 / 25%);
+}
+.home-why-benefit { min-width: 0; padding-inline: 20px; border-left: 1px solid rgb(115 122 128 / 20%); }
+.home-why-benefit:first-child { padding-left: 0; border-left: 0; }
+.home-why-benefit:last-child { padding-right: 0; }
+.home-why-benefit-marker { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; margin-bottom: 8px; }
+.home-why-icon { flex-shrink: 0; color: var(--color-zadco-orange); }
+.home-why-number { color: var(--color-zadco-grey); font-family: var(--font-condensed); font-size: 14px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.home-why-benefit-copy { min-width: 0; }
+.home-why .home-why-benefit-title { min-height: 30px; }
+.home-why-benefit-copy p { margin-top: 12px; color: #596b76; font-size: 14px; line-height: 1.7; }
+.home-why-enquiry { display: inline-flex; align-items: center; gap: 12px; min-height: 44px; max-width: 100%; margin-top: 20px; font-size: 14px; font-weight: 700; }
+.home-why-enquiry svg { flex-shrink: 0; color: var(--color-zadco-orange); }
+.home-why-enquiry:hover { color: var(--color-zadco-orange); text-decoration: underline; text-underline-offset: 4px; }
+
+.home-why-process { position: relative; isolation: isolate; overflow: hidden; }
+.home-why-process > .industrial-surface { isolation: auto; }
+.home-why-process .industrial-content { z-index: 3; }
+
+@media (max-width: 700px) {
+  .home-why-benefits { grid-template-columns: minmax(0, 1fr); margin-top: 28px; padding: 0; }
+  .home-why-benefit,
+  .home-why-benefit:first-child,
+  .home-why-benefit:last-child { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 16px; padding: 20px 0; border-left: 0; }
+  .home-why-benefit + .home-why-benefit { border-top: 1px solid rgb(115 122 128 / 20%); }
+  .home-why-benefit-marker { align-items: center; gap: 10px; margin: 0; }
+  .home-why-icon { width: 32px; height: 32px; }
+  .home-why .home-why-benefit-title { min-height: 0; }
+  .home-why-benefit-copy p { margin-top: 8px; }
+}

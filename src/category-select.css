@@ -1,0 +1,62 @@
+.equipment-category-select { cursor: pointer; }
+.equipment-category-select + svg { transition: rotate 180ms ease; }
+
+@supports (appearance: base-select) {
+  @media (min-width: 640px) {
+    .equipment-category-select.equipment-category-select,
+    .equipment-category-select::picker(select) { appearance: base-select; }
+
+    .equipment-category-select.equipment-category-select { align-items: center; min-width: 0; font-family: var(--font-sans); }
+    .equipment-category-select::picker-icon { display: none; }
+    .equipment-category-select:open { border-color: var(--color-zadco-orange); }
+    .equipment-category-select:open + svg { rotate: 180deg; }
+
+    .equipment-category-select::picker(select) {
+      width: max(anchor-size(width), 320px);
+      max-width: calc(100vw - 32px);
+      max-height: min(420px, 60dvh);
+      margin-block: 6px;
+      padding: 6px;
+      border: 1px solid #dce1e2;
+      border-top: 2px solid var(--color-zadco-orange);
+      border-radius: 6px;
+      background: white;
+      color: var(--color-zadco-navy);
+      box-shadow: 0 12px 28px rgb(20 39 51 / 14%);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+      scrollbar-color: #b4bdc0 transparent;
+    }
+
+    .equipment-category-select option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 42px;
+      padding: 10px 12px;
+      border-left: 3px solid transparent;
+      border-radius: 3px;
+      background: white;
+      color: var(--color-zadco-navy);
+      font-family: var(--font-sans);
+      font-size: 14px;
+      line-height: 1.5;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      cursor: pointer;
+    }
+
+    .equipment-category-select option:first-child { margin-bottom: 4px; border-bottom: 1px solid #e4e7e5; font-weight: 500; }
+    .equipment-category-select option:hover,
+    .equipment-category-select option:focus { background: #f4f5f3; outline: none; }
+    .equipment-category-select option:checked { border-left-color: var(--color-zadco-orange); background: #f4f5f3; font-weight: 500; }
+    .equipment-category-select option::checkmark { order: 1; margin-left: auto; color: var(--color-zadco-orange); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .equipment-category-select + svg { transition: none; }
+}

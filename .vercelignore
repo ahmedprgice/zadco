@@ -1,0 +1,17 @@
+node_modules
+dist
+build
+.git
+.env*
+.cache
+.vite
+.plugins
+.opencode-skills
+.figma/design-context
+AGENTS.md
+CLAUDE.md
+COMPANY-CONTENT-CHECKLIST.md
+*-check.cjs
+*.log
+.tmp-*
+zadco-client-preview.zip

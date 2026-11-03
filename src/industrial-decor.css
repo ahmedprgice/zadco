@@ -1,0 +1,122 @@
+.industrial-surface {
+  --industrial-line: rgb(20 39 51 / 8%);
+  --industrial-accent: rgb(232 117 34 / 16%);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.industrial-content { position: relative; z-index: 1; }
+
+.industrial-surface::before,
+.industrial-surface::after {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.industrial-arcs-end::after,
+.industrial-arcs-start::after,
+.industrial-arcs-corner::after,
+.industrial-corner-grid::after {
+  right: -310px;
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    transparent 0 39.8%, var(--industrial-line) 40% 40.2%, transparent 40.4% 52.8%,
+    var(--industrial-line) 53% 53.2%, transparent 53.4% 67.8%,
+    var(--industrial-accent) 68% 68.2%, transparent 68.4%);
+}
+
+.industrial-arcs-end::after { bottom: -320px; }
+.industrial-arcs-start::after { top: -320px; }
+.industrial-arcs-corner::after { top: -320px; }
+.industrial-corner-grid::after { bottom: -320px; }
+
+.industrial-grid::before,
+.industrial-corner-grid::before {
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgb(20 39 51 / 4%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(20 39 51 / 4%) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to right, transparent 45%, #000 100%);
+}
+
+.industrial-precision::before {
+  top: 18%;
+  right: 0;
+  width: clamp(130px, 20vw, 270px);
+  height: 92px;
+  border-top: 1px solid var(--industrial-line);
+  border-left: 1px solid var(--industrial-accent);
+}
+
+.industrial-precision::after {
+  top: 18%;
+  right: 0;
+  width: 42px;
+  height: 1px;
+  background: rgb(232 117 34 / 35%);
+}
+
+.industrial-process::before {
+  right: 0;
+  bottom: 0;
+  width: 54%;
+  height: 68%;
+  background: url("/images/industry-refinery.jpg") center 72% / cover no-repeat;
+  filter: grayscale(1);
+  opacity: .06;
+  mask-image: linear-gradient(to top, #000 0%, transparent 90%);
+}
+
+.industrial-process::after {
+  bottom: 20%;
+  left: 0;
+  width: min(16vw, 180px);
+  height: 70px;
+  border-bottom: 1px solid var(--industrial-line);
+  border-right: 1px solid var(--industrial-accent);
+}
+
+.industrial-dark::before {
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgb(244 245 243 / 7%) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(244 245 243 / 7%) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to right, transparent 25%, #000 100%);
+}
+
+.industrial-dark::after {
+  right: -280px;
+  bottom: -300px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    transparent 0 41.8%, rgb(244 245 243 / 9%) 42% 42.2%, transparent 42.4% 56.8%,
+    rgb(232 117 34 / 16%) 57% 57.2%, transparent 57.4% 70.8%,
+    rgb(244 245 243 / 7%) 71% 71.2%, transparent 71.4%);
+}
+
+@media (max-width: 700px) {
+  .industrial-arcs-end::after,
+  .industrial-arcs-start::after,
+  .industrial-arcs-corner::after,
+  .industrial-corner-grid::after {
+    right: -210px;
+    width: 440px;
+    height: 440px;
+  }
+  .industrial-arcs-end::after, .industrial-corner-grid::after { bottom: -220px; }
+  .industrial-arcs-start::after, .industrial-arcs-corner::after { top: -220px; }
+  .industrial-grid::before, .industrial-corner-grid::before { background-size: 36px 36px; }
+  .industrial-precision::before, .industrial-precision::after { top: 10%; }
+  .industrial-process::before { width: 82%; height: 46%; opacity: .045; }
+  .industrial-process::after { bottom: 12%; }
+  .industrial-dark::after { right: -220px; bottom: -220px; width: 440px; height: 440px; }
+}

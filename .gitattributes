@@ -1,0 +1,9 @@
+# Keep deployable media in Git so Vercel receives the actual assets.
+* text=auto
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.mp4 binary
+*.pdf binary

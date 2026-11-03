@@ -1,0 +1,64 @@
+.about-supply-area-toggle,
+.about-purpose-mobile-copy { display: none; }
+.about-page .about-supply-area-action { display: none; }
+
+@media (max-width: 700px) {
+  .about-page .about-container,
+  .about-page .about-intro-inner { width: 100%; padding-inline: 16px; }
+  .about-page #about-main > .site-section,
+  .about-page .about-purpose,
+  .about-page .about-connect { padding-block: 40px; }
+  .about-page #about-main > section { scroll-margin-top: 96px; }
+  .about-page .about-intro { padding-block: 40px 28px; text-align: left; }
+  .about-page .about-intro .about-eyebrow { justify-content: flex-start; }
+  .about-page .about-intro h1 { margin-top: 16px; font-size: 32px; line-height: 1.15; letter-spacing: 0; }
+  .about-page .about-intro-description { margin-top: 16px; font-size: 15px; line-height: 1.75; }
+  .about-page .about-intro-action { width: 100%; max-width: none; min-height: 48px; margin-top: 24px; padding: 12px 18px; border-radius: 0; white-space: normal; }
+  .about-page .about-video-section { padding-bottom: 0; }
+  .about-page .about-company-video { border-radius: 4px; }
+
+  .about-page #about-scope-title,
+  .about-page .about-purpose-intro h2 { font-size: 30px; line-height: 1.15; letter-spacing: 0; }
+  .about-page [aria-labelledby="about-scope-title"] > .about-container { gap: 24px; }
+  .about-page [aria-labelledby="about-scope-title"] .text-base { font-size: 15px; line-height: 1.75; }
+  .about-page .about-supply-area { padding-block: 0; }
+  .about-supply-area-link { display: none; }
+  .about-page .about-supply-area-toggle { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 60px; padding-block: 16px; text-align: left; font-family: var(--font-condensed); font-size: 20px; line-height: 1.3; }
+  .about-supply-area-toggle svg { flex-shrink: 0; color: var(--color-zadco-orange); }
+  .about-supply-area-toggle[aria-expanded="true"] svg { transform: rotate(180deg); }
+  .about-supply-area-panel { display: none; padding-bottom: 16px; }
+  .about-supply-area-panel.is-open { display: block; }
+  .about-page .about-supply-area-action { display: inline-flex; margin-top: 8px; }
+
+  .about-page .about-purpose-header { gap: 24px; }
+  .about-page .about-purpose-intro > p:last-child { margin-top: 16px; font-size: 15px; line-height: 1.7; }
+  .about-page .about-purpose-visual { padding: 0; }
+  .about-page .about-purpose-visual::before { display: none; }
+  .about-page .about-purpose-image { aspect-ratio: 2 / 1; }
+  .about-page .about-purpose-visual figcaption { padding: 12px 14px; font-size: 10px; letter-spacing: 0; }
+  .about-page .about-purpose-list { margin-top: 24px; }
+  .about-page .about-purpose-item { padding: 20px; row-gap: 16px; }
+  .about-page .about-purpose-copy h3 { font-size: 24px; }
+  .about-page .about-purpose-full-copy { display: none; }
+  .about-purpose-mobile-copy { display: block; grid-column: 1 / -1; }
+  .about-page .about-purpose-mobile-copy p { font-size: 15px; line-height: 1.7; }
+  .about-purpose-more { margin-top: 12px; }
+  .about-purpose-more summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; color: #a84c13; font-size: 14px; font-weight: 700; cursor: pointer; list-style: none; }
+  .about-purpose-more summary::-webkit-details-marker { display: none; }
+  .about-purpose-more summary:focus-visible { outline: 2px solid var(--color-zadco-orange); outline-offset: 3px; }
+  .about-purpose-more[open] summary svg { transform: rotate(180deg); }
+  .about-purpose-more ul { display: grid; gap: 12px; margin-top: 12px; padding-left: 18px; font-size: 15px; line-height: 1.7; list-style: disc; color: #526873; }
+  .about-purpose-item + .about-purpose-item .about-purpose-more summary { color: #f5a76d; }
+  .about-purpose-item + .about-purpose-item .about-purpose-more ul { color: #d3dfe4; }
+
+  .about-page .about-commitments-intro { font-size: 15px; line-height: 1.7; }
+  .about-page .about-commitments-list { margin-top: 24px; }
+  .about-page .about-supply > .about-container > .grid > p { font-size: 15px; line-height: 1.7; }
+  .about-page .about-supply dl { margin-top: 24px; }
+  .about-page .about-supply dl > div { padding-block: 20px; gap: 12px; }
+  .about-page .about-supply dt > span:first-child { display: none; }
+  .about-page .about-supply dd { margin-top: 8px; }
+  .about-page .about-connect-inner { gap: 20px; }
+  .about-page .about-connect a { width: 100%; padding: 12px 16px; min-height: 48px; gap: 12px; white-space: normal; }
+  .about-page .about-connect a svg { flex-shrink: 0; }
+}

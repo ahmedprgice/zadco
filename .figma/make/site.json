@@ -1,0 +1,12 @@
+{
+  "title": "Oilfield Equipment, Tools & Petrochemical Supply | ZADCO",
+  "language": "en",
+  "description": "Source oilfield equipment, industrial tools, spare parts and petrochemicals with ZADCO. Send your specifications, quantities and delivery requirements.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

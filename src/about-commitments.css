@@ -1,0 +1,47 @@
+.about-commitments {
+  background: white;
+  color: var(--color-zadco-navy);
+}
+
+.about-commitments-heading { max-width: 960px; }
+.about-commitments-intro { margin-top: 20px; font-size: 16px; line-height: 1.75; color: #405561; }
+
+.about-commitments .about-commitments-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 36px;
+  padding-block: 28px;
+  border-block: 1px solid rgb(115 122 128 / 25%);
+}
+.about-commitments .about-commitment {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  padding: 0 24px;
+  border-left: 1px solid rgb(115 122 128 / 20%);
+}
+.about-commitments .about-commitment:first-child { padding-left: 0; border-left: 0; }
+.about-commitments .about-commitment:last-child { padding-right: 0; }
+.about-commitment-icon { display: flex; align-items: center; width: 36px; height: 36px; flex-shrink: 0; color: var(--color-zadco-orange); }
+.about-commitment-copy { min-width: 0; }
+.about-commitment-copy dt { font-family: var(--font-condensed); font-size: var(--site-item-title-size); font-weight: 700; line-height: 1.25; }
+.about-commitment-copy dd { margin-top: 12px; color: #405561; font-size: 14px; line-height: 1.7; }
+
+@media (min-width: 701px) and (max-width: 1023px) {
+  .about-commitments .about-commitments-list { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 32px; }
+  .about-commitments .about-commitment:nth-child(4) { padding-left: 0; border-left: 0; }
+  .about-commitments .about-commitment:nth-child(3) { padding-right: 0; }
+}
+
+@media (max-width: 700px) {
+  .about-commitments .about-commitments-list { grid-template-columns: minmax(0, 1fr); margin-top: 28px; padding: 0; }
+  .about-commitments .about-commitment,
+  .about-commitments .about-commitment:first-child,
+  .about-commitments .about-commitment:last-child { flex-direction: row; gap: 16px; padding: 20px 0; border-left: 0; }
+  .about-commitments .about-commitment + .about-commitment { border-top: 1px solid rgb(115 122 128 / 20%); }
+  .about-commitment-icon { width: 32px; height: 32px; }
+  .about-commitment-icon svg { width: 32px; height: 32px; }
+  .about-commitment-copy dd { margin-top: 8px; }
+}

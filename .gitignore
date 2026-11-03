@@ -1,0 +1,12 @@
+node_modules/
+dist/
+build/
+.vercel/
+.env*
+!.env.example
+*.log
+.cache/
+.vite/
+output/
+tmp/
+package-lock.json

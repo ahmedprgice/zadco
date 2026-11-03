@@ -1,0 +1,396 @@
+{
+  "/images/about-roadmap-1280-reference.png": {
+    "width": 1024,
+    "height": 1536,
+    "variants": [
+      {
+        "src": "/images/optimized/about-roadmap-1280-reference-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/about-roadmap-1280-reference-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/about-roadmap-1280-reference-1024.webp",
+        "width": 1024
+      }
+    ]
+  },
+  "/images/about-roadmap-reference.png": {
+    "width": 948,
+    "height": 1659,
+    "variants": [
+      {
+        "src": "/images/optimized/about-roadmap-reference-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/about-roadmap-reference-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/about-roadmap-reference-948.webp",
+        "width": 948
+      }
+    ]
+  },
+  "/images/company-overview-pipelines.jpg": {
+    "width": 2000,
+    "height": 696,
+    "variants": [
+      {
+        "src": "/images/optimized/company-overview-pipelines-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/company-overview-pipelines-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/company-overview-pipelines-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/company-overview-pipelines-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/company-overview-reference.png": {
+    "width": 236,
+    "height": 113,
+    "variants": [
+      {
+        "src": "/images/optimized/company-overview-reference-236.webp",
+        "width": 236
+      }
+    ]
+  },
+  "/images/equipment-christmas-trees.png": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/images/optimized/equipment-christmas-trees-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/equipment-christmas-trees-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/equipment-christmas-trees-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/equipment-christmas-trees-1536.webp",
+        "width": 1536
+      }
+    ]
+  },
+  "/images/equipment-coiled-tubing.png": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/images/optimized/equipment-coiled-tubing-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/equipment-coiled-tubing-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/equipment-coiled-tubing-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/equipment-coiled-tubing-1536.webp",
+        "width": 1536
+      }
+    ]
+  },
+  "/images/equipment-compressors.png": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/images/optimized/equipment-compressors-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/equipment-compressors-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/equipment-compressors-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/equipment-compressors-1536.webp",
+        "width": 1536
+      }
+    ]
+  },
+  "/images/equipment-drill-bits.png": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/images/optimized/equipment-drill-bits-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/equipment-drill-bits-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/equipment-drill-bits-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/equipment-drill-bits-1536.webp",
+        "width": 1536
+      }
+    ]
+  },
+  "/images/equipment-pumps.png": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/images/optimized/equipment-pumps-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/equipment-pumps-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/equipment-pumps-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/equipment-pumps-1536.webp",
+        "width": 1536
+      }
+    ]
+  },
+  "/images/equipment-separators.png": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/images/optimized/equipment-separators-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/equipment-separators-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/equipment-separators-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/equipment-separators-1536.webp",
+        "width": 1536
+      }
+    ]
+  },
+  "/images/equipment-wellheads.png": {
+    "width": 1536,
+    "height": 1024,
+    "variants": [
+      {
+        "src": "/images/optimized/equipment-wellheads-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/equipment-wellheads-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/equipment-wellheads-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/equipment-wellheads-1536.webp",
+        "width": 1536
+      }
+    ]
+  },
+  "/images/home-offshore-hero.png": {
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "src": "/images/optimized/home-offshore-hero-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/home-offshore-hero-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/home-offshore-hero-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/home-offshore-hero-1672.webp",
+        "width": 1672
+      }
+    ]
+  },
+  "/images/home-supply-reference.png": {
+    "width": 1672,
+    "height": 941,
+    "variants": [
+      {
+        "src": "/images/optimized/home-supply-reference-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/home-supply-reference-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/home-supply-reference-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/home-supply-reference-1672.webp",
+        "width": 1672
+      }
+    ]
+  },
+  "/images/industry-refinery.jpg": {
+    "width": 1800,
+    "height": 1200,
+    "variants": [
+      {
+        "src": "/images/optimized/industry-refinery-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/industry-refinery-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/industry-refinery-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/industry-refinery-1800.webp",
+        "width": 1800
+      }
+    ]
+  },
+  "/images/offshore-rig-sunset.png": {
+    "width": 1881,
+    "height": 836,
+    "variants": [
+      {
+        "src": "/images/optimized/offshore-rig-sunset-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/offshore-rig-sunset-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/offshore-rig-sunset-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/offshore-rig-sunset-1881.webp",
+        "width": 1881
+      }
+    ]
+  },
+  "/images/sourcing-process-refinery.png": {
+    "width": 1774,
+    "height": 887,
+    "variants": [
+      {
+        "src": "/images/optimized/sourcing-process-refinery-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/sourcing-process-refinery-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/sourcing-process-refinery-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/sourcing-process-refinery-1774.webp",
+        "width": 1774
+      }
+    ]
+  },
+  "/images/supply-pipelines.jpg": {
+    "width": 1200,
+    "height": 1790,
+    "variants": [
+      {
+        "src": "/images/optimized/supply-pipelines-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/supply-pipelines-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/supply-pipelines-1200.webp",
+        "width": 1200
+      }
+    ]
+  },
+  "/images/zadco-primary-full-colour.png": {
+    "width": 1938,
+    "height": 423,
+    "variants": [
+      {
+        "src": "/images/optimized/zadco-primary-full-colour-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/zadco-primary-full-colour-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/zadco-primary-full-colour-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/zadco-primary-full-colour-1920.webp",
+        "width": 1920
+      }
+    ]
+  },
+  "/images/zadco-primary-full-reversed.png": {
+    "width": 1938,
+    "height": 423,
+    "variants": [
+      {
+        "src": "/images/optimized/zadco-primary-full-reversed-480.webp",
+        "width": 480
+      },
+      {
+        "src": "/images/optimized/zadco-primary-full-reversed-800.webp",
+        "width": 800
+      },
+      {
+        "src": "/images/optimized/zadco-primary-full-reversed-1280.webp",
+        "width": 1280
+      },
+      {
+        "src": "/images/optimized/zadco-primary-full-reversed-1920.webp",
+        "width": 1920
+      }
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+.home-supply {
+  position: relative;
+  overflow: hidden;
+  background: white;
+  padding: 112px 0;
+  color: var(--color-zadco-navy);
+}
+
+.home-supply-inner { position: relative; z-index: 1; max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.home-supply-heading > p { color: var(--color-zadco-grey); font-size: 12px; font-weight: 600; letter-spacing: 0; margin: 0 0 20px; }
+.home-supply-heading h2 { font-size: 48px; font-weight: 600; line-height: 1.2; letter-spacing: 0; margin: 0; }
+.home-supply-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 48px; }
+.home-supply-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid #e5e5e5; border-radius: 8px; background: white; min-width: 0; }
+.home-supply-image { position: relative; aspect-ratio: 465 / 183; background-image: url("/images/home-supply-reference.png"); background-size: 359.57% 514.21%; background-repeat: no-repeat; }
+.home-supply-image-1 { background-position: 9.78% 44.06%; }
+.home-supply-image-2 { background-position: 50.45% 44.06%; }
+.home-supply-image-3 { background-position: 90.89% 44.06%; }
+.home-supply-number { display: none; }
+.home-supply-body { display: flex; flex: 1; flex-direction: column; padding: 24px; }
+.home-supply-body h3 { margin: 0; font-size: 24px; line-height: 1.3; font-weight: 600; letter-spacing: 0; }
+.home-supply-body h3::after { content: ""; display: block; height: 2px; width: 36px; background: var(--color-zadco-orange); margin-top: 16px; }
+.home-supply-body > p { margin: 16px 0 24px; font-size: 14px; line-height: 1.7; color: var(--color-zadco-grey); }
+.home-supply-link { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; margin-top: auto; color: inherit; text-decoration: none; }
+.home-supply-link > span:first-child { font-size: 12px; font-weight: 600; letter-spacing: 0; }
+.home-supply-arrow { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex-shrink: 0; border: 1px solid var(--color-zadco-orange); border-radius: 50%; color: var(--color-zadco-orange); transition: background-color 150ms, color 150ms; }
+.home-supply-link:hover .home-supply-arrow { background: var(--color-zadco-orange); color: white; }
+
+@media (max-width: 1023px) {
+  .home-supply { padding-block: 80px; }
+  .home-supply-heading h2 { font-size: 36px; }
+  .home-supply-grid { gap: 20px; }
+  .home-supply-body { padding: 20px; }
+  .home-supply-body h3 { font-size: 22px; }
+}
+
+@media (max-width: 767px) {
+  .home-supply-grid { grid-template-columns: 1fr; margin-top: 32px; }
+}
+
+@media (max-width: 639px) {
+  .home-supply { padding-block: 56px; }
+  .home-supply-inner { padding-inline: 16px; }
+  .home-supply-heading h2 { font-size: 30px; }
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "vite",
+  "buildCommand": "pnpm run build:production",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/equipment-tools/product/1", "destination": "/equipment-tools/product/drilling-services-3", "permanent": true },
+    { "source": "/equipment-tools/product/2", "destination": "/equipment-tools/product/well-construction-cementing-1", "permanent": true },
+    { "source": "/equipment-tools/product/3", "destination": "/equipment-tools/product/oilfield-equipment-maintenance-3", "permanent": true }
+  ]
+}
