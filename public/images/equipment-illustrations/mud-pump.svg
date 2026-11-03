@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Generic skid-mounted mud pump</title>
+  <desc id="desc">Original geometric schematic showing a pump housing, motor and three fluid cylinders.</desc>
+  <rect width="800" height="500" fill="#f3f5f5"/>
+  <ellipse cx="400" cy="407" rx="285" ry="18" fill="#dce2e3"/>
+  <g stroke="#233d4b" stroke-width="8" stroke-linejoin="round">
+    <path d="M135 371h530v29H135z" fill="#233d4b"/>
+    <path d="M177 245h156v109H177z" fill="#91a4ac"/>
+    <path d="M196 264v72m26-72v72m26-72v72m26-72v72m26-72v72" fill="none" stroke-width="5"/>
+    <path d="M333 283h44v41h-44z" fill="#233d4b"/>
+    <path d="M376 218h164l42 38v100H376z" fill="#e28135"/>
+    <circle cx="433" cy="282" r="33" fill="#f3f5f5"/>
+    <circle cx="433" cy="282" r="12" fill="#91a4ac"/>
+    <path d="M530 270h80v29h-80zm0 47h80v29h-80zm0-94h80v29h-80z" fill="#91a4ac"/>
+    <path d="M610 223h28v123h-28z" fill="#233d4b"/>
+    <path d="M611 221v-42h-96v-34h-27v60h96v16" fill="#91a4ac"/>
+    <path d="M200 355v16m106-16v16m95-16v16m153-16v16" fill="none"/>
+  </g>
+</svg>

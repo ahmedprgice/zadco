@@ -17,13 +17,11 @@ export function equipmentCategoryHref(id = "") {
 export type EquipmentReferencePhoto = {
   src: string
   alt: string
-  sourceUrl: string
 }
 
 const workoverRigPhoto: EquipmentReferencePhoto = {
-  src: "/images/equipment-references/coopers-workover-rig.jpg",
-  alt: "COOPERS LTO-550 DD land workover rig, MachineryTrader listing reference",
-  sourceUrl: "https://www.machinerytrader.com/listing/for-sale/257973127/1982-coopers-lto-550-dd-well-service-slash-workover-rigs-oilfield-equipment",
+  src: "/images/equipment-illustrations/workover-rig.svg",
+  alt: "Original schematic illustration of a generic land workover rig",
 }
 
 // Reference equipment illustrates only the matching part of each broad category.
@@ -31,14 +29,12 @@ const referencePhotos: Record<string, EquipmentReferencePhoto | undefined> = {
   "drilling-services-1": workoverRigPhoto,
   "well-intervention-workover-3": workoverRigPhoto,
   "oilfield-equipment-maintenance-1": {
-    src: "/images/equipment-references/emsco-mud-pump.jpg",
-    alt: "EMSCO F800 triplex mud pump, MachineryTrader listing reference",
-    sourceUrl: "https://www.machinerytrader.com/listing/for-sale/250408483/emsco-f800-drilling-equipment-oilfield-equipment",
+    src: "/images/equipment-illustrations/mud-pump.svg",
+    alt: "Original schematic illustration of a generic skid-mounted mud pump",
   },
   "well-construction-cementing-3": {
-    src: "/images/equipment-references/delta-wellhead-spacer.jpg",
-    alt: "DELTA wellhead spacer spool, MachineryTrader listing reference",
-    sourceUrl: "https://www.machinerytrader.com/listing/for-sale/251934763/delta-wellhead-spacer-drilling-equipment-oilfield-equipment",
+    src: "/images/equipment-illustrations/wellhead-spool.svg",
+    alt: "Original schematic illustration of a generic flanged wellhead spacer spool",
   },
 }
 

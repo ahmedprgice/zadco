@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Generic land workover rig</title>
+  <desc id="desc">Original geometric schematic of a mobile workover rig, without manufacturer details.</desc>
+  <rect width="800" height="500" fill="#f3f5f5"/>
+  <ellipse cx="400" cy="421" rx="285" ry="17" fill="#dce2e3"/>
+  <g stroke="#233d4b" stroke-width="8" stroke-linejoin="round">
+    <path d="M338 356 387 63h26l49 293Z" fill="#e1e7e8"/>
+    <path d="m346 310 104-55-88-58 70-53-48-50m-28 139 104 70M387 63h26" fill="none"/>
+    <path d="M321 358h159v28H321z" fill="#e28135"/>
+    <path d="M181 358h397v46H181z" fill="#233d4b"/>
+    <path d="M513 317h87l48 44v43h-70v-46h-65z" fill="#e28135"/>
+    <path d="M546 326h45l30 27h-75z" fill="#dcebf0" stroke-width="4"/>
+    <path d="M207 314h102v44H207z" fill="#91a4ac"/>
+    <path d="M189 402h-36v22m430-22h81v22M400 93v224" fill="none"/>
+    <circle cx="253" cy="402" r="24" fill="#233d4b"/>
+    <circle cx="315" cy="402" r="24" fill="#233d4b"/>
+    <circle cx="592" cy="402" r="24" fill="#233d4b"/>
+  </g>
+  <g fill="#dce2e3"><circle cx="253" cy="402" r="9"/><circle cx="315" cy="402" r="9"/><circle cx="592" cy="402" r="9"/></g>
+</svg>

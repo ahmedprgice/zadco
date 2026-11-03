@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">Generic flanged wellhead spacer spool</title>
+  <desc id="desc">Original geometric schematic of a cylindrical spacer with bolted flanges.</desc>
+  <rect width="800" height="500" fill="#f3f5f5"/>
+  <ellipse cx="400" cy="425" rx="204" ry="17" fill="#dce2e3"/>
+  <g stroke="#233d4b" stroke-width="7" stroke-linejoin="round">
+    <path d="M295 159h210v224H295z" fill="#91a4ac"/>
+    <path d="M330 177v186m140-186v186" fill="none" stroke="#bcc9ce" stroke-width="12"/>
+    <path d="M245 363h310v35c0 38-310 38-310 0z" fill="#e28135"/>
+    <ellipse cx="400" cy="363" rx="155" ry="35" fill="#d89a69"/>
+    <path d="M245 135h310v35c0 38-310 38-310 0z" fill="#e28135"/>
+    <ellipse cx="400" cy="135" rx="155" ry="46" fill="#e9b48b"/>
+    <ellipse cx="400" cy="135" rx="87" ry="24" fill="#233d4b"/>
+    <path d="M273 135h17m220 0h17M310 108h17m146 0h17m-180 54h17m146 0h17M387 100h26m-26 73h26" fill="none" stroke-linecap="round"/>
+    <path d="M273 359h17m220 0h17m-190 25h17m92 0h17" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>
