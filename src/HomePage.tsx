@@ -213,7 +213,10 @@ export default function HomePage() {
               </article>
             )})}
           </div>
-          <a href="/contact#rfq" className="home-why-enquiry">Discuss your sourcing requirements <ArrowRight size={18} aria-hidden="true" /></a>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <a href="/contact#rfq" className="home-why-enquiry">Discuss your sourcing requirements <ArrowRight size={18} aria-hidden="true" /></a>
+            <a href="/about#technical-support" className="home-why-enquiry">Technical Support <ArrowRight size={18} aria-hidden="true" /></a>
+          </div>
         </div>
       </section>
 
