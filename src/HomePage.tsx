@@ -40,8 +40,8 @@ export default function HomePage() {
         <div className="home-hero-shade" />
         <SiteHeader active="Home" overlay />
         <div className="home-hero-content">
-          <h1 id="home-hero-title">Oilfield Trading &amp; Technical Product Support</h1>
-          <p>We trade and supply oilfield equipment, tools, spare parts and chemicals, supported by technical product assistance.</p>
+          <h1 id="home-hero-title">Oilfield Trading &amp; Technical Support</h1>
+          <p>Equipment, tools, spare parts and chemicals, sourced to your requirements.</p>
           <div className="home-hero-actions">
             <a className="home-hero-explore site-button site-button--inverse-outline" href="/equipment-tools">Explore Products <ArrowRight size={18} aria-hidden="true" /></a>
             <a className="home-hero-support site-button" href="/about#technical-support">Technical Support <ArrowRight size={18} aria-hidden="true" /></a>
