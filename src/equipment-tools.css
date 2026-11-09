@@ -23,6 +23,18 @@
   font-family: var(--font-sans);
 }
 
+.equipment-quote-flow { border-top: 1px solid #e5e5e5; }
+.equipment-quote-flow-heading { max-width: 640px; }
+.equipment-quote-flow-heading::before { display: block; width: 40px; height: 2px; margin-bottom: 16px; background: var(--color-zadco-orange); content: ""; }
+.equipment-quote-steps { position: relative; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; margin: 40px 0 0; padding: 0; list-style: none; }
+.equipment-quote-steps::before { position: absolute; top: 26px; left: 26px; right: calc((100% - 96px) / 3 - 26px); height: 1px; background: #d9dfe1; content: ""; }
+.equipment-quote-step { position: relative; min-width: 0; }
+.equipment-quote-step-icon { position: relative; display: flex; align-items: center; justify-content: center; width: 52px; height: 52px; border: 1px solid rgb(232 117 34 / 25%); border-radius: 8px; background: #fff7f0; color: var(--color-zadco-orange); box-shadow: 0 0 0 8px white; }
+.equipment-quote-step-copy { margin-top: 24px; }
+.equipment-quote-step-title { display: flex; align-items: baseline; gap: 12px; }
+.equipment-quote-step-number { flex-shrink: 0; color: var(--color-zadco-orange); font-family: var(--font-condensed); font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.equipment-quote-step-copy p { max-width: 320px; }
+
 .equipment-pagination { margin-top: 28px; padding-top: 20px; border-top: 1px solid rgb(115 122 128 / 25%); }
 .equipment-pagination > p { margin-bottom: 12px; font-size: 13px; color: var(--color-zadco-grey); text-align: center; }
 .equipment-pagination-controls { display: flex; align-items: center; justify-content: center; gap: 8px; }
@@ -30,3 +42,11 @@
 .equipment-pagination button[aria-current="page"] { background: var(--color-zadco-navy); border-color: var(--color-zadco-navy); color: white; }
 .equipment-pagination button:hover:not(:disabled) { border-color: var(--color-zadco-orange); }
 .equipment-pagination button:disabled { opacity: .4; cursor: default; }
+
+@media (max-width: 767px) {
+  .equipment-quote-steps { grid-template-columns: 1fr; gap: 32px; margin-top: 32px; }
+  .equipment-quote-steps::before { top: 26px; right: auto; bottom: 26px; width: 1px; height: auto; }
+  .equipment-quote-step { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 24px; }
+  .equipment-quote-step-copy { margin-top: 0; }
+  .equipment-quote-step-copy p { max-width: none; }
+}
