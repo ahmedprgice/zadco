@@ -47,6 +47,9 @@ export default function PriorityProductGroups() {
             </li>
           ))}
         </ul>
+        <p className="mt-6 text-sm leading-6 text-zadco-grey">
+          Need help selecting the right product? Our team can assist with specification review, compatibility checks and spare-parts identification. <a href="/about#technical-support" className="font-medium text-zadco-navy underline underline-offset-4 hover:text-zadco-orange">Technical Support <ArrowRight size={15} className="ml-1 inline" aria-hidden="true" /></a>
+        </p>
       </div>
     </section>
   )
