@@ -1,7 +1,7 @@
 import ResponsiveImage from "./ResponsiveImage";
 import { useEffect, useState } from "react"
-import { ChevronDown, ChevronLeft, ChevronRight, FileText, ImageIcon, LayoutGrid, Send } from "lucide-react"
-import { equipmentCategories, equipmentCategoryHref, filterEquipmentProducts } from "./equipment-categories"
+import { ChevronDown, ChevronLeft, ChevronRight, ImageIcon } from "lucide-react"
+import { equipmentCategories, filterEquipmentProducts } from "./equipment-categories"
 import type { EquipmentReferencePhoto } from "./equipment-categories"
 import EquipmentReferenceImage from "./EquipmentReferenceImage"
 import MobileSelectSheet from "./MobileSelectSheet"
@@ -10,11 +10,9 @@ import "./equipment-tools.css"
 import "./category-select.css"
 import { useRouteLocation } from "./route-location"
 import { applyPageSeo } from "./seo"
-import "./equipment-category-accordion.css"
 import {
   Action,
   Heading,
-  Label,
   SiteFooter,
   SiteHeader,
   TextLink,
@@ -67,10 +65,7 @@ function CatalogueCard({
           {title}
         </Heading>
         <p className="mt-3 text-sm leading-5 text-zadco-grey">{description}</p>
-        <p className="mt-4 text-xs text-zadco-grey">
-          MANUFACTURER: QUOTED TO YOUR BRIEF
-        </p>
-        <div className="mt-auto border-t border-zadco-grey/20 pt-5">
+        <div className="mt-auto pt-5">
           <TextLink path={`/equipment-tools/product/${id}`}>
             VIEW DETAILS →
           </TextLink>
@@ -87,8 +82,6 @@ function CatalogueCard({
 
 export default function EquipmentToolsPage() {
   const routeLocation = useRouteLocation()
-  const [filtersOpen, setFiltersOpen] = useState(false)
-  const [openCategory, setOpenCategory] = useState<string | null>(null)
   const readCategory = () => {
     const id = new URLSearchParams(typeof window === "undefined" ? routeLocation.search : window.location.search).get("category") ?? ""
     return equipmentCategories.some((category) => category.id === id) ? id : ""
@@ -178,11 +171,10 @@ export default function EquipmentToolsPage() {
             </Heading>
             <p className="mt-6 max-w-xl text-base leading-7 text-zadco-soft/80">
               Source equipment, machinery, tools and spare parts for drilling, well construction,
-              completion, testing, production and well intervention. Share your application,
-              specification and quantity so we can review suitable supply options.
+              completion, testing, production and well intervention.
             </p>
             <div className="mt-8">
-              <Action path="/contact#rfq">REQUEST A QUOTE →</Action>
+              <Action path="#catalogue">BROWSE CATALOGUE →</Action>
             </div>
           </div>
           <div className="col-span-1 lg:col-span-6">
@@ -213,147 +205,39 @@ export default function EquipmentToolsPage() {
       </section>
 
       <section className="site-section">
-        <div className="mx-auto flex max-w-7xl flex-col items-stretch gap-8 lg:flex-row lg:items-start px-4 sm:px-6">
-          <aside className="w-full shrink-0 lg:w-56 border border-zadco-grey/25 border-t-2 border-t-zadco-orange bg-zadco-soft p-5">
-            <p className="hidden text-sm font-semibold tracking-wider text-zadco-navy lg:block">
-              FILTERS
-            </p>
-            <button
-              type="button"
-              onClick={() => setFiltersOpen(!filtersOpen)}
-              aria-expanded={filtersOpen}
-              aria-controls="catalogue-filters"
-              className="flex min-h-11 w-full items-center justify-between text-sm font-semibold text-zadco-navy lg:hidden"
-            >
-              <span>FILTERS</span>
-              <span aria-hidden="true">{filtersOpen ? "-" : "+"}</span>
-            </button>
-            <div
-              id="catalogue-filters"
-              className={`${filtersOpen ? "block" : "hidden"} lg:block`}
-            >
-              <div className="mt-6 border-t border-zadco-grey/20 pt-5">
-                <p className="text-sm font-semibold text-zadco-navy">
-                  Equipment Category
-                </p>
-                <div className="mt-4 flex flex-col gap-3">
-                  {[{ id: "", label: "All Categories" }, ...equipmentCategories].map(({ id, label }) => (
-                    <label
-                      key={id}
-                      className="flex cursor-pointer items-start gap-3 text-xs leading-5 text-zadco-grey"
-                    >
-                      <input type="radio" name="equipment-category" value={id} checked={categoryId === id} onChange={() => selectCategory(id)} className="mt-0.5 h-4 w-4 shrink-0 accent-zadco-orange" />
-                      <span>{label}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
+        <div id="catalogue-results" tabIndex={-1} className="mx-auto max-w-7xl scroll-mt-28 px-4 sm:px-6">
+          <Heading className="text-3xl sm:text-4xl">
+            {selectedCategory?.label ?? "Our Equipment Catalogue"}
+          </Heading>
+          <p role="status" className="mt-3 text-sm text-zadco-grey">{products.length} {products.length === 1 ? "item" : "items"}{search.trim() ? ` matching "${search.trim()}"` : ""}{pageCount > 1 && ` · Showing ${(currentPage - 1) * pageSize + 1}-${Math.min(currentPage * pageSize, products.length)}`}</p>
+          <p className="mt-3 text-sm leading-6 text-zadco-grey">Catalogue entries show the types of equipment we source. Check individual product pages for quote requirements.</p>
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
+            {visibleProducts.map(
+              ({ id, category, title, description, referencePhoto }) => (
+                <CatalogueCard
+                  key={id}
+                  category={category}
+                  title={title}
+                  description={description}
+                  id={id}
+                  referencePhoto={referencePhoto}
+                />
+              ),
+            )}
+          </div>
+          {pageCount > 1 && <nav className="equipment-pagination" aria-label="Equipment catalogue pages">
+            <p>Page {currentPage} of {pageCount}</p>
+            <div className="equipment-pagination-controls">
+              <button type="button" disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)} aria-label="Previous page" title="Previous page"><ChevronLeft size={18} aria-hidden="true" /><span className="hidden sm:inline">Previous</span></button>
+              {pageButtons.map(number => <button type="button" key={number} onClick={() => changePage(number)} aria-label={`Page ${number}`} aria-current={number === currentPage ? "page" : undefined}>{number}</button>)}
+              <button type="button" disabled={currentPage === pageCount} onClick={() => changePage(currentPage + 1)} aria-label="Next page" title="Next page"><span className="hidden sm:inline">Next</span><ChevronRight size={18} aria-hidden="true" /></button>
             </div>
-          </aside>
-
-          <div className="min-w-0 w-full flex-1">
-            <div id="catalogue-results" tabIndex={-1} className="scroll-mt-28">
-              <Heading className="text-3xl sm:text-4xl">
-                {selectedCategory?.label ?? "Our Equipment Catalogue"}
-              </Heading>
-              <p role="status" className="mt-3 text-sm text-zadco-grey">{products.length} {products.length === 1 ? "item" : "items"}{search.trim() ? ` matching "${search.trim()}"` : ""}{pageCount > 1 && ` · Showing ${(currentPage - 1) * pageSize + 1}-${Math.min(currentPage * pageSize, products.length)}`}</p>
-              <p className="mt-3 text-sm leading-6 text-zadco-grey">Browse equipment types available for sourcing enquiries, not live stock. Your quotation confirms the proposed manufacturer, specification, condition, availability and lead time.</p>
-              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5">
-                {visibleProducts.map(
-                  ({ id, category, title, description, referencePhoto }) => (
-                    <CatalogueCard
-                      key={id}
-                      category={category}
-                      title={title}
-                      description={description}
-                      id={id}
-                      referencePhoto={referencePhoto}
-                    />
-                  ),
-                )}
-              </div>
-              {pageCount > 1 && <nav className="equipment-pagination" aria-label="Equipment catalogue pages">
-                <p>Page {currentPage} of {pageCount}</p>
-                <div className="equipment-pagination-controls">
-                  <button type="button" disabled={currentPage === 1} onClick={() => changePage(currentPage - 1)} aria-label="Previous page" title="Previous page"><ChevronLeft size={18} aria-hidden="true" /><span className="hidden sm:inline">Previous</span></button>
-                  {pageButtons.map(number => <button type="button" key={number} onClick={() => changePage(number)} aria-label={`Page ${number}`} aria-current={number === currentPage ? "page" : undefined}>{number}</button>)}
-                  <button type="button" disabled={currentPage === pageCount} onClick={() => changePage(currentPage + 1)} aria-label="Next page" title="Next page"><span className="hidden sm:inline">Next</span><ChevronRight size={18} aria-hidden="true" /></button>
-                </div>
-              </nav>}
-              {products.length === 0 && <div className="border-t border-neutral-200 py-8">
-                <Heading level={3}>No matching equipment</Heading>
-                <p className="mt-3 text-sm text-zadco-grey">Try another category or search term.</p>
-                <button type="button" onClick={clearFilters} className="site-text-link mt-3">Clear Filters</button>
-              </div>}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="equipment-categories" className="site-section border-y border-zadco-grey/20 bg-zadco-soft">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-            <Heading className="text-3xl">Browse by Equipment Category</Heading>
-          </div>
-          <div className="mt-9 grid grid-cols-1 gap-x-12 md:grid-cols-2">
-            {equipmentCategories.map(({ id, label, items }, index) => (
-              <article key={id} id={id} className={`equipment-category-row scroll-mt-28 border-t border-zadco-grey/25 md:py-8 ${openCategory === id ? "equipment-category-row--open" : ""}`}>
-                <Heading level={3}>
-                  <a href={equipmentCategoryHref(id)} className="hidden hover:text-zadco-orange md:inline">{label}</a>
-                  <button
-                    type="button"
-                    id={`category-toggle-${id}`}
-                    aria-expanded={openCategory === id}
-                    aria-controls={`category-panel-${id}`}
-                    onClick={() => setOpenCategory(current => current === id ? null : id)}
-                    className="equipment-category-toggle flex min-h-14 w-full items-center justify-between gap-4 py-4 text-left md:hidden"
-                  >
-                    <span className="equipment-category-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                    <span className="equipment-category-name font-condensed text-xl font-bold">{label}</span>
-                    <ChevronDown size={20} aria-hidden="true" className={`shrink-0 text-zadco-orange ${openCategory === id ? "rotate-180" : ""}`} />
-                  </button>
-                </Heading>
-                <div id={`category-panel-${id}`} className={`equipment-category-panel ${openCategory === id ? "block" : "hidden"} pb-6 md:block md:pb-0`}>
-                <ul className="equipment-category-items mt-4 list-disc space-y-2 pl-5 text-sm leading-6 text-zadco-grey marker:text-zadco-orange">
-                  {items.map((item) => <li key={item}>{item}</li>)}
-                </ul>
-                <div className="equipment-category-actions mt-4">
-                  <div className="equipment-category-browse md:hidden"><Action path={equipmentCategoryHref(id)} navy>VIEW EQUIPMENT</Action></div>
-                  <TextLink path={`/contact?product=${encodeURIComponent(label)}#rfq`}>SEND A REQUIREMENT →</TextLink>
-                </div>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="site-section equipment-quote-flow bg-white" aria-labelledby="equipment-quote-flow-title">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="equipment-quote-flow-heading">
-            <Label>HOW IT WORKS</Label>
-            <Heading className="mt-4" >From Equipment to Quotation</Heading>
-          </div>
-          <ol className="equipment-quote-steps">
-            {[
-              { title: "Browse Equipment", copy: "Find the equipment type that matches your application.", Icon: LayoutGrid },
-              { title: "Review the Brief", copy: "Identify the technical details needed for a sourcing enquiry.", Icon: FileText },
-              { title: "Request a Quote", copy: "Share your specification, quantity and delivery destination.", Icon: Send },
-            ].map(({ title, copy, Icon }, index) => (
-              <li key={title} className="equipment-quote-step">
-                <div className="equipment-quote-step-icon" aria-hidden="true">
-                  <Icon size={22} strokeWidth={1.8} />
-                </div>
-                <div className="equipment-quote-step-copy">
-                  <div className="equipment-quote-step-title">
-                    <span className="equipment-quote-step-number" aria-hidden="true">0{index + 1}</span>
-                    <Heading level={3}>{title}</Heading>
-                  </div>
-                  <p className="mt-3 text-sm leading-6 text-zadco-grey">{copy}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          </nav>}
+          {products.length === 0 && <div className="border-t border-neutral-200 py-8">
+            <Heading level={3}>No matching equipment</Heading>
+            <p className="mt-3 text-sm text-zadco-grey">Try another category or search term.</p>
+            <button type="button" onClick={clearFilters} className="site-text-link mt-3">Clear Filters</button>
+          </div>}
         </div>
       </section>
 
