@@ -1,7 +1,7 @@
 import ResponsiveImage from "./ResponsiveImage";
 import { useState } from "react"
 import { SiteFooter, SiteHeader } from "./SiteComponents"
-import { ArrowRight, Award, ChevronDown, FileText, HardHat, Handshake, Search, ShieldCheck, Truck, Users } from "lucide-react"
+import { ArrowRight, Award, ChevronDown, Download, FileText, HardHat, Handshake, Search, ShieldCheck, Truck, Users } from "lucide-react"
 import { enquiryHref } from "./site-links"
 import "./about-page.css"
 import "./about-purpose.css"
@@ -20,6 +20,11 @@ export default function AboutPage() {
           <h1 id="about-title">ZADCO Oilfield Trading</h1>
           <p className="about-intro-description">ZADCO Oilfield Trading LLC sources and supplies oilfield equipment, industrial tools, spare parts and petrochemicals for the oil, gas and energy sectors. Through local and international supply channels, we review your technical requirements, identify suitable options and coordinate the commercial and delivery details.</p>
           <a className="about-button about-button-orange about-intro-action" href={enquiryHref}>Send a sourcing brief <ArrowRight size={19} aria-hidden="true" /></a>
+          <p className="mt-4">
+            <a href="/documents/zadco-company-profile.pdf" download className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-zadco-navy underline underline-offset-4 hover:text-zadco-orange">
+              <Download size={17} aria-hidden="true" /> Download company profile (PDF, review copy)
+            </a>
+          </p>
         </div>
       </section>
 
@@ -139,21 +144,47 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="site-section about-supply bg-white text-zadco-navy" aria-labelledby="about-supply-title">
+      <section id="technical-support" className="site-section scroll-mt-28 border-b border-zadco-grey/25 bg-white text-zadco-navy" aria-labelledby="about-support-title">
         <div className="about-container">
-          <p className="about-eyebrow">BEFORE YOU ORDER</p>
+          <p className="about-eyebrow">CUSTOMER SUPPORT</p>
           <div className="mt-5 grid items-center gap-5 lg:grid-cols-2 lg:gap-16">
-            <h2 id="about-supply-title" className="site-heading max-w-lg">Define your requirements before you order</h2>
-            <p className="text-base leading-7 text-zadco-grey">Include documents, inspections and delivery arrangements in your enquiry. Confirm availability, costs and responsibilities before ordering.</p>
+            <h2 id="about-support-title" className="site-heading max-w-lg">Technical &amp; After-Sales Support</h2>
+            <p className="text-base leading-7 text-zadco-grey">We help you define what you need before ordering and coordinate support after delivery. As a growing supplier, we’re building our specialist network and supplier relationships as customer needs develop.</p>
           </div>
           <dl className="mt-8 grid gap-x-16 border-b border-zadco-grey/25 md:mt-10 md:grid-cols-2">
             {[
-              ["Technical documentation", "Identify the datasheets, dimensions, material specifications and manufacturer information your application needs."],
-              ["Certificates & traceability", "List the required certificates, test reports, origin records or chemical safety documents."],
-              ["Inspection requirements", "Specify any pre-dispatch or third-party inspection so its scope and cost can be agreed."],
-              ["Delivery arrangements", "Set out the destination, packaging, target date and delivery terms, including transport responsibilities."],
+              ["Product selection & compatibility", "We help clarify specifications, review compatibility with your application and identify replacement parts from equipment details or part numbers."],
+              ["Technical procurement", "We coordinate technical questions with suppliers and help compare offers against your technical and commercial requirements."],
+              ["Specialist engineering assistance", "Where qualified engineering input is required, we can arrange assistance through suitable specialists, subject to availability and an agreed scope."],
+              ["Testing & after-sales coordination", "Where agreed, we coordinate testing, inspection, calibration, training, troubleshooting and warranty enquiries with suppliers or service providers. The quotation sets out the scope and responsibilities."],
+            ].map(([title, copy]) => (
+              <div key={title} className="min-w-0 border-t border-zadco-grey/25 py-6 sm:py-8">
+                <dt className="font-condensed text-[length:var(--site-item-title-size)] font-bold leading-tight">{title}</dt>
+                <dd className="mt-3 text-sm leading-6 text-zadco-grey sm:text-base sm:leading-7">{copy}</dd>
+              </div>
+            ))}
+          </dl>
+          <a href={enquiryHref} className="mt-5 inline-flex min-h-11 items-center gap-3 text-sm font-medium text-zadco-orange hover:text-zadco-navy">
+            <span className="underline underline-offset-4">Discuss your support requirements</span><ArrowRight size={18} aria-hidden="true" />
+          </a>
+        </div>
+      </section>
+
+      <section id="sourcing-supply" className="site-section about-supply scroll-mt-28 bg-white text-zadco-navy" aria-labelledby="about-supply-title">
+        <div className="about-container">
+          <p className="about-eyebrow">FROM ENQUIRY TO DELIVERY</p>
+          <div className="mt-5 grid items-center gap-5 lg:grid-cols-2 lg:gap-16">
+            <h2 id="about-supply-title" className="site-heading max-w-lg">Sourcing &amp; Supply Coordination</h2>
+            <p className="text-base leading-7 text-zadco-grey">Send us your equipment or materials list, required documents and delivery destination. We’ll review sourcing options and agree the scope of supply with you before you order.</p>
+          </div>
+          <dl className="mt-8 grid gap-x-16 border-b border-zadco-grey/25 md:mt-10 md:grid-cols-2">
+            {[
+              ["Sourcing & procurement", "We review your specifications, part numbers and quantities against supplier options. Where practical, we consolidate multiple items into one procurement request."],
+              ["Quotation details", "The quotation sets out the proposed manufacturer and specification, availability, estimated lead time and delivery terms."],
+              ["Documentation & traceability", "We confirm which records are required for each item and which the supplier can provide. These may include datasheets, material certificates, test reports, batch or serial records, and safety data sheets."],
+              ["Inspection & delivery", "We coordinate agreed inspections, confirm packaging and transport responsibilities, and follow up on dispatch and delivery against the agreed terms."],
             ].map(([title, copy], index) => {
-              const Icon = [FileText, ShieldCheck, Search, Truck][index]
+              const Icon = [Search, FileText, ShieldCheck, Truck][index]
               return <div key={title} className="grid min-w-0 grid-cols-[28px_minmax(0,1fr)] gap-4 border-t border-zadco-grey/25 py-6 sm:grid-cols-[40px_minmax(0,1fr)] sm:gap-6 sm:py-8">
                 <Icon className="mt-1 h-7 w-7 text-zadco-orange sm:h-10 sm:w-10" strokeWidth={1.6} aria-hidden="true" />
                 <div>
@@ -167,7 +198,7 @@ export default function AboutPage() {
             })}
           </dl>
           <a href={enquiryHref} className="mt-5 inline-flex min-h-11 items-center gap-3 text-sm font-medium text-zadco-orange hover:text-zadco-navy">
-            <span className="underline underline-offset-4">Discuss your requirements</span><ArrowRight size={18} aria-hidden="true" />
+            <span className="underline underline-offset-4">Discuss your sourcing requirements</span><ArrowRight size={18} aria-hidden="true" />
           </a>
         </div>
       </section>

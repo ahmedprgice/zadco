@@ -2,6 +2,7 @@ import ResponsiveImage from "./ResponsiveImage";
 import { ArrowRight, ChevronDown, ClipboardCheck, MessageSquare, Search, ShieldCheck } from "lucide-react"
 import { useState } from "react"
 import MobileSelectSheet from "./MobileSelectSheet"
+import PriorityProductGroups from "./PriorityProductGroups"
 import { equipmentCategories } from "./equipment-categories"
 import "./home-equipment-finder.css"
 import "./category-select.css"
@@ -70,6 +71,8 @@ export default function HomePage() {
           </form>
         </div>
       </section>
+
+      <PriorityProductGroups />
 
       <section className="home-supply industrial-surface industrial-arcs-end" aria-labelledby="home-supply-title">
         <div className="home-supply-inner">

@@ -13,6 +13,12 @@ pnpm dev
 
 The development server runs on port 8443.
 
+## RFQ delivery
+
+The contact form submits to `/api/rfq`. Set `RESEND_API_KEY`, `RFQ_FROM_EMAIL` and `RFQ_TO_EMAIL` in Vercel and in `.env.local` for local testing. The sender must use a domain verified in Resend. The recipient is the inbox that handles submitted requests.
+
+Customers can attach up to five PDF, XLSX, PNG or JPEG files with a combined limit of 4 MB. The form shows a reference number once Resend accepts the message for delivery. Replies go to the customer's submitted email address.
+
 ## Build and verify
 
 ```sh

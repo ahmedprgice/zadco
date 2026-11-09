@@ -5,6 +5,7 @@ import { equipmentCategories, equipmentCategoryHref, filterEquipmentProducts } f
 import type { EquipmentReferencePhoto } from "./equipment-categories"
 import EquipmentReferenceImage from "./EquipmentReferenceImage"
 import MobileSelectSheet from "./MobileSelectSheet"
+import PriorityProductGroups from "./PriorityProductGroups"
 import "./equipment-tools.css"
 import "./category-select.css"
 import { useRouteLocation } from "./route-location"
@@ -21,17 +22,6 @@ import {
 
 const rigImage =
   "https://images.unsplash.com/photo-1578356058390-f58c575337a2?auto=format&fit=crop&w=1600&q=85"
-
-const equipmentImages = [
-  "https://images.unsplash.com/photo-1744302448929-1070a016ce66?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1678984239420-43cdc183bce6?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1698031610511-c7a35d121b17?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1562237553-36ad661d6f2c?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1698031610524-c35e7ebbba2c?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1720036237098-9f21aea3e5ee?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1563883830555-79971475cc22?auto=format&fit=crop&w=900&q=85",
-  "https://images.unsplash.com/photo-1757573538081-c469f75cdd7a?auto=format&fit=crop&w=900&q=85",
-]
 
 function EquipmentImage({
   src,
@@ -50,56 +40,6 @@ function EquipmentImage({
         className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
       />
     </div>
-  )
-}
-
-function FeaturedCard({
-  image,
-  category,
-  title,
-  description,
-  specification,
-  manufacturer,
-  id,
-}: {
-  image: string
-  category: string
-  title: string
-  description: string
-  specification: string
-  manufacturer: string
-  id: string
-}) {
-  return (
-    <article className="flex min-h-full flex-col border border-zadco-grey/25 border-t-2 border-t-zadco-orange bg-white">
-      <EquipmentImage src={image} alt={title} className="site-product-image" />
-      <p className="border-b border-zadco-grey/20 px-6 py-2 text-xs text-zadco-grey">Illustrative image, not a stock listing.</p>
-      <div className="flex flex-1 flex-col p-6">
-        <p className="border-l-2 border-zadco-orange pl-2 font-condensed text-xs font-bold text-zadco-navy">{category}</p>
-        <Heading level={3} className="mt-3 text-2xl">
-          {title}
-        </Heading>
-        <p className="mt-4 text-sm leading-6 text-zadco-grey">{description}</p>
-        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 border-y border-zadco-grey/20 py-4 text-xs">
-          <div>
-            <p className="text-zadco-grey">SPECIFICATION</p>
-            <p className="mt-1 font-medium text-zadco-navy">{specification}</p>
-          </div>
-          <div>
-            <p className="text-zadco-grey">MANUFACTURER</p>
-            <p className="mt-1 font-medium text-zadco-navy">{manufacturer}</p>
-          </div>
-        </div>
-        <div className="mt-auto flex flex-wrap items-center justify-between gap-4 pt-6">
-          <TextLink path={`/equipment-tools/product/${id}`}>
-            VIEW DETAILS →
-          </TextLink>
-          <Action path={`/contact?product=${encodeURIComponent(title)}#rfq`} outlined>
-            REQUEST QUOTE
-          </Action>
-        </div>
-      </div>
-    </article>
   )
 }
 
@@ -255,6 +195,8 @@ export default function EquipmentToolsPage() {
         </div>
       </section>
 
+      <PriorityProductGroups />
+
       <section id="catalogue" className="scroll-mt-28 border-b border-zadco-grey/20 bg-zadco-soft py-6">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-4 px-4 sm:px-6">
           <input type="search" aria-label="Search equipment" placeholder="Search equipment..." value={search} onChange={(event) => setSearch(event.target.value)} className={`${toolbarClass} w-full sm:w-auto sm:flex-1`} />
@@ -310,46 +252,7 @@ export default function EquipmentToolsPage() {
           </aside>
 
           <div className="min-w-0 w-full flex-1">
-            {!categoryId && !search.trim() && <>
-            <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-              <Heading className="text-3xl sm:text-4xl">
-                Featured Equipment
-              </Heading>
-              <TextLink path="/equipment-tools">VIEW ALL →</TextLink>
-            </div>
-            <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-3">
-              <FeaturedCard
-                image={equipmentImages[0]}
-                category="DRILLING EQUIPMENT & TOOLS"
-                title="PDC Drill Bit"
-                description="Drill bit enquiries based on bit type, diameter, connection and drilling application."
-                specification="To be specified"
-                manufacturer="Quoted to your brief"
-                id="drilling-services-3"
-              />
-              <FeaturedCard
-                image={equipmentImages[1]}
-                category="WELL CONSTRUCTION & CEMENTING"
-                title="Casing Pipe"
-                description="Casing enquiries based on diameter, grade, connection, length and required quantity."
-                specification="To be specified"
-                manufacturer="Quoted to your brief"
-                id="well-construction-cementing-1"
-              />
-              <FeaturedCard
-                image={equipmentImages[2]}
-                category="GENERAL OILFIELD EQUIPMENT"
-                title="Wellhead Assembly"
-                description="Wellhead enquiries based on pressure rating, connection details and assembly scope."
-                specification="To be specified"
-                manufacturer="Quoted to your brief"
-                id="oilfield-equipment-maintenance-3"
-              />
-            </div>
-
-            </>}
-
-            <div id="catalogue-results" tabIndex={-1} className={`scroll-mt-28 ${!categoryId && !search.trim() ? "mt-12 border-t border-zadco-grey/25 pt-12" : ""}`}>
+            <div id="catalogue-results" tabIndex={-1} className="scroll-mt-28">
               <Heading className="text-3xl sm:text-4xl">
                 {selectedCategory?.label ?? "Our Equipment Catalogue"}
               </Heading>

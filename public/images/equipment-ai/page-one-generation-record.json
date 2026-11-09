@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-03",
+  "tool": "OpenAI built-in image generation",
+  "method": "Text-only generation; no reference photographs",
+  "style": "Photorealistic generic fictional industrial equipment; pale grey studio background; steel, navy and orange; no logos or text",
+  "images": [
+    {
+      "file": "drilling-fluids.webp",
+      "subject": "unbranded industrial drilling-fluid supplies: three sealed steel drums, a neat stack of plain bulk additive sacks and a small stainless mixing vessel; no lettering or symbols"
+    },
+    {
+      "file": "drill-bits.webp",
+      "subject": "three generic oilfield drilling tools: a tricone roller bit, a PDC drill bit with visible cutters and a short drill-string tool, grouped as a studio product set"
+    },
+    {
+      "file": "casing-tubing.webp",
+      "subject": "a neatly stacked bundle of oilfield steel casing and tubing pipes with visible threaded connections, varied diameters, open ends facing camera"
+    },
+    {
+      "file": "cementing-unit.webp",
+      "subject": "a compact generic oilfield cementing skid with two pump housings, mixing tank, pressure piping and control enclosure, entire unit visible"
+    },
+    {
+      "file": "liner-hangers.webp",
+      "subject": "a studio arrangement of a generic liner hanger and two tubular completion tool assemblies, detailed steel collars and slips, no brand marks"
+    },
+    {
+      "file": "packers.webp",
+      "subject": "three generic oilfield downhole packer tools with steel mandrels and black elastomer sealing elements, one horizontal and two gently angled"
+    },
+    {
+      "file": "slickline-unit.webp",
+      "subject": "a compact generic oilfield slickline winch skid with a wound steel wire reel, protective frame and small operator control panel"
+    },
+    {
+      "file": "pressure-testing.webp",
+      "subject": "an industrial pressure-testing kit on a compact skid, with a hydrostatic hand pump, hoses, two round analog pressure gauges, fittings and valves; no readable markings"
+    },
+    {
+      "file": "production-testing.webp",
+      "subject": "a generic compact oilfield production well-testing skid with horizontal separator vessel, gauges, piping and valves, fully visible"
+    },
+    {
+      "file": "artificial-lift.webp",
+      "subject": "a generic oilfield electric submersible pump assembly with long slender steel pump stages, intake, motor and cable, arranged horizontally in a clean product studio"
+    }
+  ]
+}

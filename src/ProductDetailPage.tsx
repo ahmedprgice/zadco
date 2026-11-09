@@ -3,6 +3,42 @@ import { useRouteLocation } from "./route-location"
 import EquipmentReferenceImage from "./EquipmentReferenceImage"
 import { Action, Heading, Label, Placeholder, SiteFooter, SiteHeader, TextLink } from "./SiteComponents"
 
+const productRfqFields: Partial<Record<string, string[]>> = {
+  "well-construction-cementing-2": [
+    "Required pumping rate and discharge pressure, including the operating point if known.",
+    "Truck, trailer or skid mounting, plus the preferred power source.",
+    "Mixing and recirculation requirements, including any equipment the unit needs to connect to.",
+  ],
+  "stimulation-acidizing-3": [
+    "Acid type, concentration and maximum operating temperature.",
+    "Required working capacity and any specified tank material or lining.",
+    "Inlet, outlet and vent requirements, plus any containment or transport requirements.",
+  ],
+  "high-pressure-equipment-pump-consumables-7": [
+    "Pump manufacturer and model, plus the fluid-end part number or nameplate photo if available.",
+    "Plunger diameter, required working pressure and intended service fluid.",
+    "Whether the quote should include a bare fluid end or an assembly with valves, seats and packing.",
+  ],
+  "well-intervention-workover-5": [
+    "Coiled tubing outside diameter, wall thickness and grade if known.",
+    "Preferred connector style and the tool-side connection or thread.",
+    "Required tensile load and working pressure, plus the service environment.",
+  ],
+  "laboratory-testing-equipment-1": [
+    "Applicable test method and the temperature and pressure ranges required by the test schedule.",
+    "Data logging and report export requirements.",
+    "Required calibration documentation and any sample cups, seals or spares to include.",
+  ],
+}
+
+const quantityAndDelivery = "Quantity, required condition, delivery destination and target date."
+const generalRfqFields = [
+  "Manufacturer or part number, where required, and whether alternatives are acceptable.",
+  "Dimensions, ratings, materials, applicable standards and intended use.",
+  quantityAndDelivery,
+  "Required datasheets, certificates, traceability or inspection scope.",
+]
+
 export default function ProductDetailPage() {
   const productId = useRouteLocation().pathname.split("/").filter(Boolean).at(-1)
   const product = findEquipmentProduct(productId ?? "")
@@ -16,6 +52,8 @@ export default function ProductDetailPage() {
   </main>
 
   const enquiry = `/contact?product=${encodeURIComponent(product.title)}#rfq`
+  const specificRfqFields = productRfqFields[product.id]
+  const rfqFields = specificRfqFields ? [...specificRfqFields, quantityAndDelivery] : generalRfqFields
   return <main className="min-w-0 bg-white text-zadco-navy">
     <SiteHeader active="Equipment & Tools" />
     <section className="site-section industrial-surface industrial-arcs-corner">
@@ -39,12 +77,9 @@ export default function ProductDetailPage() {
           </div>
         </div>
         <div className="mt-12 grid gap-8 border-t border-neutral-300 pt-10 lg:grid-cols-2">
-          <div><Heading>Your technical brief</Heading>
+          <div><Heading>{specificRfqFields ? "What to include in your RFQ" : "Your technical brief"}</Heading>
             <ul className="mt-5 list-disc space-y-3 pl-5 text-sm leading-6 text-zadco-grey marker:text-zadco-orange">
-              <li>Manufacturer or part number, where required, and whether alternatives are acceptable.</li>
-              <li>Dimensions, ratings, materials, applicable standards and intended use.</li>
-              <li>Quantity, required condition, delivery destination and target date.</li>
-              <li>Required datasheets, certificates, traceability or inspection scope.</li>
+              {rfqFields.map((field) => <li key={field}>{field}</li>)}
             </ul>
           </div>
           <div><Heading>Documentation & delivery</Heading>

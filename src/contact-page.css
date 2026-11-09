@@ -1,4 +1,14 @@
 .contact-layout > *, .contact-field { min-width: 0; }
+
+@supports (appearance: base-select) {
+  @media (min-width: 640px) {
+    .contact-field .equipment-category-select::picker(select) {
+      position-area: block-end span-inline-end;
+      position-try-fallbacks: none;
+    }
+  }
+}
+
 .contact-detail a { overflow-wrap: anywhere; }
 .contact-detail a[href] { display: inline-flex; min-height: 44px; align-items: center; max-width: 100%; }
 .contact-map > a { min-height: 48px; }

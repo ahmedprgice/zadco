@@ -1,9 +1,11 @@
-import { defineConfig, type HtmlTagDescriptor, type Plugin } from 'vite'
+import { defineConfig, loadEnv, type HtmlTagDescriptor, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'node:url'
 import { readFile } from 'node:fs/promises'
 import { resolve, extname } from 'node:path'
+import { Readable } from 'node:stream'
+import { handleRfq } from './api/rfq'
 
 import siteConfiguration from './.figma/make/site.json'
 
@@ -23,6 +25,7 @@ export default defineConfig(({ mode }) => {
 react(),
       tailwindcss(),
       prerenderedRoutePreview(),
+      localRfq(),
       figmaSiteConfiguration(siteConfiguration),
       figmaErrorOverlayReplay(),
       figmaReactRefreshBoundaryFallback(),
@@ -49,6 +52,39 @@ react(),
     },
   }
 })
+
+function localRfq(): Plugin {
+  return {
+    name: 'local-rfq',
+    configureServer(server) {
+      const env = loadEnv(server.config.mode, server.config.envDir || server.config.root, ['RESEND_', 'RFQ_'])
+      server.middlewares.use('/api/rfq', async (req, res, next) => {
+        try {
+          const method = req.method ?? 'GET'
+          const headers = new Headers()
+          for (const name of ['content-type', 'content-length', 'origin']) {
+            const value = req.headers[name]
+            if (typeof value === 'string') headers.set(name, value)
+          }
+          const request = new Request(`http://${req.headers.host}/api/rfq`, {
+            method,
+            headers,
+            ...(method === 'POST' && {
+              body: Readable.toWeb(req) as unknown as ReadableStream<Uint8Array>,
+              duplex: 'half',
+            }),
+          })
+          const response = await handleRfq(request, env)
+          res.statusCode = response.status
+          response.headers.forEach((value, key) => res.setHeader(key, value))
+          res.end(await response.text())
+        } catch (cause) {
+          next(cause)
+        }
+      })
+    },
+  }
+}
 
 // Match production clean-URL routing instead of the default SPA fallback.
 function prerenderedRoutePreview(): Plugin {

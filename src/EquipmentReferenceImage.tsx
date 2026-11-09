@@ -13,9 +13,6 @@ export default function EquipmentReferenceImage({ photo }: { photo: EquipmentRef
           className="h-full w-full object-contain"
         />
       </div>
-      <figcaption className="border-b border-neutral-200 px-4 py-2 text-xs leading-5 text-zadco-grey">
-        AI-generated illustration · Not actual stock
-      </figcaption>
     </figure>
   )
 }

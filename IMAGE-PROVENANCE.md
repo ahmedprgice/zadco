@@ -49,7 +49,7 @@ Optimized WebP variants inherit the rights status of their source image; convers
 
 ## Unsplash links
 
-EquipmentToolsPage.tsx uses four Unsplash CDN images (rigImage and the first three equipmentImages entries); five additional URLs are unused. The standard Unsplash license permits commercial website use, subject to its terms: https://unsplash.com/license . However, the repository does not include original photo pages or download records establishing each specific image's provenance. These links are not certified as individually cleared by this review.
+EquipmentToolsPage.tsx uses one Unsplash CDN image for the hero. The standard Unsplash license permits commercial website use, subject to its terms: https://unsplash.com/license . The repository does not include the original photo page or download records establishing this image's provenance. Featured equipment uses the local AI-generated illustrations.
 
 ## Video
 
@@ -58,3 +58,9 @@ public/videos/zadco-introduction.mp4 is assembled by scripts/render-company-vide
 ## Outstanding evidence
 
 For remaining images, obtain the original source page and license/download receipt, written permission, company ownership approval, or original creation/generation record. Until then, do not describe the complete image set as copyright-cleared.
+
+## Page-one catalogue additions
+
+Ten more text-only AI-generated equipment illustrations were added on 2026-11-03 to fill every remaining placeholder on the default desktop first page (12 catalogue items). Subjects and generation method are recorded in public/images/equipment-ai/page-one-generation-record.json. No manufacturer photographs were supplied as references.
+
+On 2026-11-09, 93 additional illustrations were generated individually with the built-in OpenAI image generation tool using written product descriptions. The optimized WebP files in `public/images/equipment-ai/` are named for their corresponding catalogue product IDs. All catalogue products now have an illustration, and the image alt text identifies it as AI generated.
