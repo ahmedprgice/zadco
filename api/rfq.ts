@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto"
-import { rfqAttachmentTypes, rfqEnquiryTypes, rfqFields, rfqMaxAttachments, rfqMaxAttachmentBytes } from "../src/rfq"
+import { rfqAttachmentTypes, rfqEnquiryTypes, rfqFields, rfqMaxAttachments, rfqMaxAttachmentBytes } from "../src/rfq.js"
 
 const maxRequestBytes = 4_400_000
 const emailPattern = /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/
