@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "start": "node server.mjs",
     "build": "node scripts/build-site.mjs",
     "build:production": "node scripts/build-site.mjs --indexable",
     "test:seo": "node scripts/test-seo.mjs",
