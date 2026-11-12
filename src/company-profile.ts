@@ -7,6 +7,6 @@ export const companyProfile: {
 } = {
   legalName: "ZADCO Oilfield Trading LLC",
   location: null,
-  email: "info@zadco.ae",
+  email: "info@zadcooilfield.com",
   phone: null,
 }
