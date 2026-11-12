@@ -31,7 +31,11 @@ export async function handleRfq(request: Request, env = process.env) {
     return new Response(null, { status: 405, headers: { Allow: "GET, POST" } })
   }
   const origin = request.headers.get("origin")
-  if (origin && origin !== new URL(request.url).origin) return error("Submit your enquiry from the ZADCO contact page.", 403)
+  if (origin) {
+    const originHost = new URL(origin).hostname.replace(/^www\./, "")
+    const requestHost = new URL(request.url).hostname.replace(/^www\./, "")
+    if (originHost !== requestHost) return error("Submit your enquiry from the ZADCO contact page.", 403)
+  }
 
   if (!apiKey || !sender || !recipient) return error("Online submission is currently unavailable. Please try again later.", 503)
 
