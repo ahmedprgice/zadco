@@ -84,14 +84,20 @@ async function handleRfq(request) {
   const submissionKey = createHash("sha256").update(JSON.stringify({ requestId, details, attachments })).digest("hex")
   const reference = `RFQ-${submissionKey.slice(0, 12).toUpperCase()}`
   try {
+    const emailPayload = { from: sender, to: [recipient], reply_to: fields.email, subject: `ZADCO enquiry ${reference}`, text: `Reference: ${reference}\n\n${details}` }
+    if (attachments.length) emailPayload.attachments = attachments
     const delivery = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json", "Idempotency-Key": `zadco-rfq/${submissionKey}` },
-      body: JSON.stringify({ from: sender, to: [recipient], reply_to: fields.email, subject: `ZADCO enquiry ${reference}`, text: `Reference: ${reference}\n\n${details}`, attachments }),
+      body: JSON.stringify(emailPayload),
       signal: AbortSignal.timeout(10000),
     })
-    if (!delivery.ok) return error("We couldn’t accept your enquiry. Please try again later.", 502)
-  } catch {
+    if (!delivery.ok) {
+      console.error("Resend rejected RFQ", delivery.status, await delivery.text())
+      return error("We couldn’t accept your enquiry. Please try again later.", 502)
+    }
+  } catch (cause) {
+    console.error("RFQ delivery failed", cause)
     return error("We couldn’t confirm your submission. Please try again later.", 502)
   }
   return Response.json({ reference }, { headers: { "Cache-Control": "no-store" } })
