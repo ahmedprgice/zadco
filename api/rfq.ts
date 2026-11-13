@@ -34,7 +34,8 @@ export async function handleRfq(request: Request, env = process.env) {
   if (origin) {
     const originHost = new URL(origin).hostname.replace(/^www\./, "")
     const requestHost = new URL(request.url).hostname.replace(/^www\./, "")
-    if (originHost !== requestHost) return error("Submit your enquiry from the ZADCO contact page.", 403)
+    const allowedOrigin = originHost === "zadcooilfield.com"
+    if (!allowedOrigin && originHost !== requestHost) return error("Submit your enquiry from the ZADCO contact page.", 403)
   }
 
   if (!apiKey || !sender || !recipient) return error("Online submission is currently unavailable. Please try again later.", 503)
